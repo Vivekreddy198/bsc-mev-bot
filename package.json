@@ -1,0 +1,13 @@
+{
+  "name": "bsc-mev-bot",
+  "version": "1.0.0",
+  "main": "bot1-bsc.js",
+  "type": "module",
+  "scripts": {
+    "start": "node bot1-bsc.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.2"
+  }
+}
