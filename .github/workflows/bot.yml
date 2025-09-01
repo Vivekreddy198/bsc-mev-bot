@@ -1,0 +1,22 @@
+name: Run BSC MEV Bot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"   # runs every 15 minutes
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install
+      - run: npm start
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          BLOXROUTE_KEY: ${{ secrets.BLOXROUTE_KEY }}
+          BSC_RPC: ${{ secrets.BSC_RPC }}
+          FLASH_RECEIVER: ${{ secrets.FLASH_RECEIVER }}
